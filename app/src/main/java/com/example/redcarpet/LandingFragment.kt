@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.landing_fragment.*
 import timber.log.Timber
+
+//@AndroidEntryPoint which means that hilt should provide all the dependencies to this fragment that it asks for.
 @AndroidEntryPoint
 class LandingFragment : Fragment(R.layout.landing_fragment) {
     private lateinit var newsAdapter:NewsAdapter
