@@ -19,7 +19,7 @@ class LandingViewModel @ViewModelInject constructor(newsRepository: NewsReposito
         newsRepository.getTopHeadlines()
             .observeOn(AndroidSchedulers.mainThread())
         //observeOn(AndroidSchedulers.mainThread()) means that we want to observe the data on the main thread
-            .subscribe({news -> _topHeadlines.value = news.article},{t -> Timber.e(t)})
+            .subscribe({news -> _topHeadlines.value = news.article},{t -> Timber.e(t)}) //the value returnde is stored in article
         //a subscription is created here
 
 
