@@ -3,10 +3,12 @@ package com.example.redcarpet
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+//@JsonClass(generateAdapter = true) which will generate a JsonAdapter to handle serializing/deserializing to and from JSON of the specified type.
 @JsonClass(generateAdapter = true)
 data class News(
     @Json(name = "status")
     val status:String,
+    //The@Json(name = “value”) annotation defines the JSON key name for serialisation and the property to set the value on with deserialization.
     @Json(name = "totalResults")
 var totalResult:Int,
     @Json(name = "articles")
