@@ -14,9 +14,11 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+//module is a class that provides information to the hilt about how to provide an instance of a class we don't own
+@InstallIn(ApplicationComponent::class) // @InsatallIn annotation and we will pass ApplicationComponent here because we want the NetworkModule to be available for us for application scope
 object NetworkModule {
     @Singleton
+    //we use @Provide annotation inside the module class to tell hilt to instantiate these objects for us
     @Provides
     fun provideHttpLoggerInterceptor(): HttpLoggingInterceptor{
         return HttpLoggingInterceptor().apply {
@@ -62,6 +64,7 @@ object NetworkModule {
             .build()
     }
     @Singleton
+    //In the module, we will provide a method to get the newsService object. Create a method provideNewsService of NewsService return type and annotate it with @Provide annotation.
     @Provides
     fun provideNewsService(retrofit: Retrofit):NewsService{
         return retrofit.create(NewsService::class.java)
