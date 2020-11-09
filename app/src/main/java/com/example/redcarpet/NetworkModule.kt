@@ -42,6 +42,7 @@ object NetworkModule {
     fun provideMoshiConverterFactory(): MoshiConverterFactory{
         return MoshiConverterFactory.create()
     }
+    //To hook it all up and parse the json to the data class you need to create a Moshi object, create the adapter instance and then pass the JSON to the adapter:
 
     @Singleton
     @Provides
