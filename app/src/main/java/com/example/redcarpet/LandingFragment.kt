@@ -27,6 +27,7 @@ class LandingFragment : Fragment(R.layout.landing_fragment) {
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        //this will observe for data changes if there are then it informs the view model to update them
         landingViewModel.topHeadlines.observe(viewLifecycleOwner, Observer {
             newsAdapter.setNews(it)
 
