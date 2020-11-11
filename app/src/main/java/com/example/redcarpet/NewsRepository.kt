@@ -13,6 +13,7 @@ class NewsRepository @Inject constructor(private val newsService : NewsService){
         return newsService.getTopHeadlines()
             .subscribeOn(Schedulers.io())
         //this means that we want to subscribe on the background thread
+        //operator tells the source Observable which thread to emit and push items on all the way down to Observer
     }
     //so the code doing here is newsService.get() is the observable part which is of type single that is it can emit a single successful or error signal no onComplete
     //and we are doing it on the back ground thread
